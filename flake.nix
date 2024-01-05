@@ -14,10 +14,12 @@
 
         devShell = pkgs.mkShell {
           inputsFrom = [ packages.csfml-handbook ];
+          packages = [ pkgs.doxygen ];
         };
 
-        packages = {
+        packages = rec {
           # Credits to nix.dev for the base derivation
+          default = csfml-handbook;
           csfml-handbook = pkgs.stdenv.mkDerivation {
             name = "CSFML-handbook";
             src = ./.;
