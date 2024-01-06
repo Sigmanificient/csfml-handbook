@@ -32,7 +32,7 @@ myst_number_code_blocks = [ "cpp" ]
 highlight_language = 'c++'
 
 templates_path = [ ]
-exclude_patterns = [ ".git", ".direnv" ]
+exclude_patterns = [ ".git", ".direnv", "csfml" ]
 
 source_suffix = ".md"
 master_doc = "index"
