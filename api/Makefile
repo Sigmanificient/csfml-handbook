@@ -18,7 +18,7 @@ $(API_REF): $(CSFML_HEADERS)
 
 %.md: %.h
 	@ touch $@
-	@ echo -e "# $(subst .md,,$@)\n" | tee $@
+	@ echo -e "# $(subst .md,,$@)" | tee $@
 	@ echo -e "\`\`\`{doxygenfile} $(subst ../,,$<)" | tee -a $@
 	@ echo -e ":project: CSFML" | tee -a $@
 	@ echo -e "\`\`\`" | tee -a $@
