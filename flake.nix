@@ -33,6 +33,7 @@
               sphinx-design
               sphinx-notfound-page
               sphinx-sitemap
+              breathe
             ];
 
             buildPhase = ''

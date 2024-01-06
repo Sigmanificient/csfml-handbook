@@ -10,7 +10,7 @@ html:
 	$(SPHINX_BUILD) . -b html $(BUILD_DIR)/html
 
 $(CSFML_DOC):
-	$(DOXYGEN) Doxyfile.in
+	$(DOXYGEN) Doxyfile
 
 .PHONY: csfml-doc
 csfml-doc: $(CSFML_DOC)

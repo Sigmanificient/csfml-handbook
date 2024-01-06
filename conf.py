@@ -10,6 +10,15 @@ extensions = [
     "sphinx_design",
     "sphinx_sitemap",
     "notfound.extension",
+
+    'sphinx.ext.autodoc',
+    'sphinx.ext.autosectionlabel',
+    'sphinx.ext.coverage',
+    'sphinx.ext.mathjax',
+    'sphinx.ext.ifconfig',
+    'sphinx.ext.viewcode',
+    'sphinx.ext.inheritance_diagram',
+    'breathe'
 ]
 
 myst_enable_extensions = [
@@ -19,9 +28,11 @@ myst_enable_extensions = [
 ]
 
 myst_heading_anchors = 3
-myst_number_code_blocks = [ "c" ]
+myst_number_code_blocks = [ "cpp" ]
+highlight_language = 'c++'
 
 templates_path = [ ]
+exclude_patterns = [ ".git", ".direnv" ]
 
 source_suffix = ".md"
 master_doc = "index"
@@ -33,8 +44,8 @@ copyright = f"2024 - {date.today().year}, Sigmanificient"
 pygments_style = "sphinx"
 todo_include_todos = True
 
+html_baseurl = "https://notes.1l.is"
 html_theme = "furo"
-# html_baseurl = ""
 html_favicon = "favicon.png"
 
 html_static_path = []
@@ -46,4 +57,6 @@ sitemap_url_scheme = "{link}"
 # Not found
 notfound_urls_prefix = "/"
 
-exclude_patterns = [ ".git", ".direnv" ]
+breathe_projects = { "CSFML": ".build/csfml/xml/" }
+breathe_default_project = "CSFML"
+breathe_default_members = ('members', 'undoc-members')
