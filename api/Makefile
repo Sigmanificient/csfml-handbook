@@ -24,7 +24,7 @@ $(API_REF): $(CSFML_HEADERS) $(INDEXES)
 $(INDEXES):
 	@ mkdir -p $(dir $@)
 	@ touch $@
-	@ echo -e "# $(dir $@)" | tee $@
+	@ echo -e "# $(subst /,,$(dir $@))" | tee $@
 	@ echo -e "\`\`\`{toctree}" | tee -a $@
 	@ echo -e ":glob:\n\n*" | tee -a $@
 	@ echo -e "\`\`\`" | tee -a $@
