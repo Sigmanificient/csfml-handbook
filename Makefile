@@ -7,7 +7,7 @@ CSFML_DOC := $(BUILD_DIR)/csfml
 
 .PHONY: html
 html:
-	$(SPHINX_BUILD) . -b html $(BUILD_DIR)/html
+	$(SPHINX_BUILD) . -b html $(BUILD_DIR)/html -j $(shell nproc)
 
 $(CSFML_DOC):
 	$(DOXYGEN) Doxyfile

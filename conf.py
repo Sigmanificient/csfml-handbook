@@ -48,10 +48,24 @@ todo_include_todos = True
 html_baseurl = "https://notes.1l.is"
 html_theme = "furo"
 html_favicon = "favicon.png"
+html_logo = "logo_small.png"
+html_title = project.replace('-', ' ')
 
-html_static_path = []
+html_theme_options = {
+    "sidebar_hide_name": True,
+    "light_css_variables": {
+        "color-brand-primary": "#537D1C",
+        "color-brand-content": "#496F19",
+    },
+    "dark_css_variables": {
+        "color-brand-primary": "#71AC27",
+        "color-brand-content": "#68A716",
+    },
+}
+
+html_static_path = [ "_static" ]
+html_css_files = [ "custom.css" ]
 html_extra_path = []
-html_css_files = []
 
 sitemap_url_scheme = "{link}"
 

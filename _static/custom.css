@@ -1,0 +1,27 @@
+
+@keyframes spinFade {
+    0% {
+        opacity: 0;
+        transform: rotateZ(-180deg);
+    }
+}
+
+@keyframes Giggle {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    50% {
+        transform: rotateZ(5deg);
+    }
+    100% {
+        transform: rotateZ(0deg);
+    }
+}
+
+.sidebar-logo-container {
+    animation: spinFade 1s cubic-bezier(.35,-0.21,.04,1.52);
+}
+
+.sidebar-logo:hover {
+    animation: Giggle 1s cubic-bezier(.35,-0.21,.04,1.52) infinite;
+}
