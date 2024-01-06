@@ -1,13 +1,73 @@
-DOXYFILE_ENCODING = UTF-8
-
-PROJECT_NAME = "CSFML Handbook"
+PROJECT_NAME = "CSFML"
 OUTPUT_DIRECTORY = .build/csfml
 
-INPUT = "csfml/include"
-RECURSIVE = YES
+ALWAYS_DETAILED_SEC = YES
+INLINE_INHERITED_MEMB = YES
 
-VERBATIM_HEADERS = NO
+FULL_PATH_NAMES = NO
+SHORT_NAMES = NO
+
+JAVADOC_AUTOBRIEF = YES
+
+ALIASES = "sfplatform{1}=<dl class=\"attention\"><dt>Platform Limitation</dt><dd><b>This is only available on \1.</b></dd></dl>" \
+    "sfplatform{2}=<dl class=\"attention\"><dt>Platform Limitation</dt><dd><b>This is only available on \1</b> and to use it, you'll have to specifically include \2 in your code.</dd></dl>"
+
+EXTRACT_STATIC = YES
+CASE_SENSE_NAMES = YES
+
+WARN_NO_PARAMDOC = YES
+
+INPUT = "csfml/include/SFML"
+
+RECURSIVE = YES
+EXCLUDE_PATTERNS = .git \
+    extlibs \
+    src \
+    examples \
+    install \
+    build \
+    tools \
+    cmake
+
+EXCLUDE_SYMBOLS = priv
+
+SOURCE_BROWSER = YES
+REFERENCES_LINK_SOURCE = NO
+SEARCHENGINE = NO
+
+COLS_IN_ALPHA_INDEX = 3
+
+HTML_HEADER = "csfml/doc/header.html"
+HTML_FOOTER = "csfml/doc/footer.html"
+HTML_STYLESHEET = "csfml/doc/doxygen.css"
+
+HTML_TIMESTAMP = NO
+HTML_DYNAMIC_MENUS = NO
+HTML_DYNAMIC_SECTIONS = NO
+
+DOCSET_FEEDNAME = "CSFML Documentation"
+DOCSET_BUNDLE_ID = org.sfml-dev.CSFML
+DOCSET_PUBLISHER_ID = org.sfml-dev.CSFML
+DOCSET_PUBLISHER_NAME = CSFML
 
 GENERATE_XML = YES
 GENERATE_LATEX = NO
-GENERATE_HTML = NO
+GENERATE_HTML = YES
+
+MACRO_EXPANSION = YES
+EXPAND_ONLY_PREDEF = YES
+
+PREDEFINED = SFML_SYSTEM_API \
+    SFML_NETWORK_API \
+    SFML_WINDOW_API \
+    SFML_AUDIO_API \
+    SFML_GRAPHICS_API \
+    SFML_DEPRECATED \
+    SFML_DOXYGEN \
+    CSFML_SYSTEM_API \
+    CSFML_NETWORK_API \
+    CSFML_WINDOW_API \
+    CSFML_AUDIO_API \
+    CSFML_GRAPHICS_API \
+    CSFML_DEPRECATED \
+    CSFML_DOXYGEN
