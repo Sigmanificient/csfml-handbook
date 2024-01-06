@@ -1,8 +1,11 @@
-# API
+# API Reference
 
 ```{toctree}
 :maxdepth: 2
-:glob:
 
-*
+Audio/index
+Graphics/index
+Network/index
+System/index
+Window/index
 ```

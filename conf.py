@@ -29,8 +29,8 @@ myst_enable_extensions = [
 ]
 
 myst_heading_anchors = 3
-myst_number_code_blocks = [ "cpp" ]
-highlight_language = 'c++'
+myst_number_code_blocks = [ "c" ]
+highlight_language = 'c'
 
 templates_path = [ ]
 exclude_patterns = [ ".git", ".direnv", "csfml" ]

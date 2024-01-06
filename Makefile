@@ -16,7 +16,7 @@ html: $(BUILD_DIR)
 	@ mkdir -p $(dir $@)
 	$(SPHINX_BUILD) . -b html $(BUILD_DIR)/html -j $(shell nproc)
 
-$(CSFML_DOC): $(BUILD_DIR)/csfml
+$(CSFML_DOC):
 	@ mkdir -p $(dir $@)
 	$(DOXYGEN) Doxyfile
 

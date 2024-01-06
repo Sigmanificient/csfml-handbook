@@ -36,7 +36,6 @@ This handbook includes tutorials and a detailed API reference.
 ```{toctree}
 :maxdepth: 2
 
-self
 api/index
 ```
 
