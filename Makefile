@@ -14,7 +14,7 @@ all: $(CSFML_DOC)
 
 html: $(BUILD_DIR)
 	@ mkdir -p $(dir $@)
-	$(SPHINX_BUILD) . -b html $(BUILD_DIR)/html -j $(shell nproc)
+	$(SPHINX_BUILD) . -b html $(BUILD_DIR)/html
 
 $(CSFML_DOC):
 	@ mkdir -p $(dir $@)
