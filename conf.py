@@ -75,3 +75,4 @@ notfound_urls_prefix = "/"
 breathe_projects = { "CSFML": ".build/csfml/xml/" }
 breathe_default_project = "CSFML"
 breathe_default_members = ('members', 'undoc-members')
+breathe_domain_by_extension = { 'h': 'c', 'c': 'c' }
