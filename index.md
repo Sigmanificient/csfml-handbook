@@ -29,13 +29,13 @@ This handbook includes tutorials and a detailed API reference.
 ## Indices and tables
 
 - {ref}`genindex`
-- {ref}`search`
 
 ### Table of content
 
 ```{toctree}
 :maxdepth: 2
 
+self
 api/index
 ```
 
