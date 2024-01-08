@@ -37,8 +37,6 @@ SEARCHENGINE = NO
 
 COLS_IN_ALPHA_INDEX = 3
 
-HTML_HEADER = "csfml/doc/header.html"
-HTML_FOOTER = "csfml/doc/footer.html"
 HTML_STYLESHEET = "csfml/doc/doxygen.css"
 
 HTML_TIMESTAMP = NO

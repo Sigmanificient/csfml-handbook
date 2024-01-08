@@ -14,7 +14,6 @@
 
         devShell = pkgs.mkShell {
           inputsFrom = [ packages.csfml-handbook ];
-          packages = [ pkgs.doxygen ];
         };
 
         packages = rec {
@@ -24,6 +23,7 @@
             name = "CSFML-handbook";
             src = ./.;
 
+            buildInputs = [ pkgs.doxygen ];
             nativeBuildInputs = with pkgs.python310.pkgs; [
               linkify-it-py
               myst-parser
@@ -37,7 +37,9 @@
             ];
 
             buildPhase = ''
-              make html
+              mkdir -p csfml/include
+              cp -r ${pkgs.csfml}/include csfml
+              make
             '';
 
             installPhase = ''

@@ -12,7 +12,7 @@ all: $(CSFML_DOC)
 
 .PHONY: html
 
-html: $(BUILD_DIR)
+html: $(CSFML_DOC)
 	@ mkdir -p $(dir $@)
 	$(SPHINX_BUILD) . -b html $(BUILD_DIR)/html
 
