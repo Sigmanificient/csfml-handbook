@@ -1,0 +1,9 @@
+breathe
+furo
+linkify-it-py
+myst-parser
+sphinx
+sphinx-copybutton
+sphinx-design
+sphinx-notfound-page
+sphinx-sitemap
