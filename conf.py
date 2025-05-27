@@ -45,7 +45,7 @@ copyright = f"2024 - {date.today().year}, Sigmanificient"
 pygments_style = "sphinx"
 todo_include_todos = True
 
-html_baseurl = "https://notes.1l.is"
+html_baseurl = "https://csml.1l.is/"
 html_theme = "furo"
 html_favicon = "favicon.png"
 html_logo = "logo_small.png"
