@@ -3,6 +3,10 @@ CSFML_DIR := ../csfml-3
 CSFML_INCLUDE := $(CSFML_DIR)/include/CSFML
 TAG := $(shell cd $(CSFML_DIR) && git describe --tags --abbrev=0)
 
+ifeq ($(TAG),)
+  $(warning "missing tag")
+endif
+
 MODULES += Audio
 MODULES += Graphics
 MODULES += Network

@@ -1,52 +1,30 @@
 {
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
-    flake-utils.url = "github:numtide/flake-utils";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+  outputs = { self, nixpkgs }: let
+    applySystems = nixpkgs.lib.genAttrs ["x86_64-linux"];
+    forAllSystems = f: applySystems (system: f nixpkgs.legacyPackages.${system});
+  in {
+    formatter = forAllSystems (pkgs: pkgs.alejandra);
+
+    devShells = forAllSystems (pkgs: {
+      default = pkgs.mkShell {
+        inputsFrom = [ self.packages.${pkgs.system}.csfml-handbook ];
+      };
+    });
+
+    packages = forAllSystems (pkgs: {
+      default = self.packages.${pkgs.system}.csfml-handbook;
+
+      csfml-handbook = pkgs.callPackage ./csfml-doc.nix {
+        inherit (self.packages.${pkgs.system}) sphinx-sitemap;
+      };
+
+      sphinx-sitemap = pkgs.python3Packages.callPackage ./sphinx-sitemap.nix
+        { inherit (self.packages.${pkgs.system}) sphinx-last-updated-by-git; };
+
+      sphinx-last-updated-by-git = pkgs.python3Packages.callPackage
+        ./sphinx-last-updated-by-git.nix { };
+    });
   };
-
-  outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in
-      rec {
-        formatter = pkgs.nixpkgs-fmt;
-
-        devShell = pkgs.mkShell {
-          inputsFrom = [ packages.csfml-handbook ];
-        };
-
-        packages = rec {
-          # Credits to nix.dev for the base derivation
-          default = csfml-handbook;
-          csfml-handbook = pkgs.stdenv.mkDerivation {
-            name = "CSFML-handbook";
-            src = ./.;
-
-            buildInputs = [ pkgs.doxygen ];
-            nativeBuildInputs = with pkgs.python310.pkgs; [
-              linkify-it-py
-              myst-parser
-              sphinx
-              furo
-              sphinx-copybutton
-              sphinx-design
-              sphinx-notfound-page
-              sphinx-sitemap
-              breathe
-            ];
-
-            buildPhase = ''
-              mkdir -p csfml/include
-              cp -r ${pkgs.csfml}/include csfml
-              make
-            '';
-
-            installPhase = ''
-              mkdir -p $out/
-              cp -R .build/html/* $out/
-            '';
-          };
-        };
-      });
 }
