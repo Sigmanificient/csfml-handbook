@@ -72,7 +72,11 @@ sitemap_url_scheme = "{link}"
 # Not found
 notfound_urls_prefix = "/"
 
-breathe_projects = { "CSFML": ".build/csfml/xml/" }
+breathe_projects = {
+  "CSFML-2.6.1": ".build/csfml/xml/",
+  "CSFML-3.0.0-rc.3": ".build/csfml-3/xml/"
+}
+
 breathe_default_project = "CSFML"
 breathe_default_members = ('members', 'undoc-members')
 breathe_domain_by_extension = { 'h': 'c', 'c': 'c' }

@@ -33,6 +33,7 @@ This handbook includes tutorials and a detailed API reference.
 
 genindex
 api/index
+api-v3/index
 ```
 
 ```{toctree}

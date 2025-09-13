@@ -1,6 +1,6 @@
-CSFML_DIR := ../csfml
+CSFML_DIR := ../csfml-3
 
-CSFML_INCLUDE := $(CSFML_DIR)/include/SFML
+CSFML_INCLUDE := $(CSFML_DIR)/include/CSFML
 TAG := $(shell cd $(CSFML_DIR) && git describe --tags --abbrev=0)
 
 MODULES += Audio
@@ -47,9 +47,9 @@ $(INDEXES):
 
 .PHONY: clean
 clean:
-	$(RM) .done
 	$(RM) $(API_REF)
 	$(RM) -rf $(MODULES)
+	$(RM) .done
 
 .PHONY: re
 re: clean all
