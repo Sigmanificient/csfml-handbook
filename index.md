@@ -10,7 +10,7 @@ myst:
 *CSFML - Simple and Fast Multimedia Library binding for C*
 
 :::{note}
-This website does not serve as the unofficial CSFML documentation.
+This website does not serve as the official CSFML documentation.
 :::
 
 A crafted guide for mastering CSFML graphics programming.
